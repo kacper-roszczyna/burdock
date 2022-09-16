@@ -1,5 +1,6 @@
 package com.roszck.burdock.ingestion.domain;
 
+import com.roszck.burdock.domain.UserId;
 import lombok.Getter;
 
 import java.io.File;
@@ -9,4 +10,8 @@ public final class FileShare extends Share {
     @Getter
     private File file;
 
+    public FileShare(File file, UserId userId) {
+        super(userId);
+        this.file = file;
+    }
 }
