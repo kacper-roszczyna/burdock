@@ -56,7 +56,7 @@ class FileShareSourceClassifierTest {
         File file = new File("src/test/resources/effective_java.txt");
 
         @Test
-        @DisplayName("Then expect PDFShare to be returned")
+        @DisplayName("Then expect ErrorShare to be returned")
         public void test() {
             var sourceShare = new FileShare(file, userId);
             var result = sourceClassifier.classify(sourceShare);
