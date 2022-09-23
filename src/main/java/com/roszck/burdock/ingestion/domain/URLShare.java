@@ -8,7 +8,7 @@ import java.net.URL;
 public final class URLShare extends Share {
 
     @Getter
-    private URL url;
+    private final URL url;
 
     public URLShare(URL url, UserId userId) {
         super(userId);

@@ -8,7 +8,7 @@ import java.io.File;
 public final class FileShare extends Share {
 
     @Getter
-    private File file;
+    private final File file;
 
     public FileShare(File file, UserId userId) {
         super(userId);

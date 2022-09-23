@@ -1,11 +1,18 @@
 package com.roszck.burdock.source;
 
 import com.roszck.burdock.domain.UserId;
+import lombok.Getter;
+
+import java.io.File;
 
 public final class PDFShare extends SourceLabeledShare {
 
-    public PDFShare(UserId userId) {
+    @Getter
+    private final File pdf;
+
+    public PDFShare(File file, UserId userId) {
         super(userId);
+        this.pdf = file;
     }
 
 }
