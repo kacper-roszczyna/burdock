@@ -1,6 +1,6 @@
 package com.roszck.burdock.ingestion.domain;
 
-import com.roszck.burdock.domain.UserId;
+import com.roszck.burdock.user.UserId;
 
 public abstract sealed class Share permits FileShare, URLShare {
     protected final UserId userId;

@@ -1,6 +1,6 @@
 package com.roszck.burdock.source.classification;
 
-import com.roszck.burdock.domain.UserId;
+import com.roszck.burdock.user.UserId;
 import com.roszck.burdock.ingestion.domain.URLShare;
 import com.roszck.burdock.source.ErrorShare;
 import com.roszck.burdock.source.TwitterShare;

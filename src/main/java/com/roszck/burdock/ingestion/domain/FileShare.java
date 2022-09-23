@@ -1,6 +1,6 @@
 package com.roszck.burdock.ingestion.domain;
 
-import com.roszck.burdock.domain.UserId;
+import com.roszck.burdock.user.UserId;
 import lombok.Getter;
 
 import java.io.File;

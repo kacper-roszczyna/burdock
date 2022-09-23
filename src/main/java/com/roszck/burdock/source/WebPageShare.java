@@ -1,6 +1,6 @@
 package com.roszck.burdock.source;
 
-import com.roszck.burdock.domain.UserId;
+import com.roszck.burdock.user.UserId;
 
 import java.net.URL;
 

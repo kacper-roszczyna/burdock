@@ -1,6 +1,6 @@
 package com.roszck.burdock.source.classification;
 
-import com.roszck.burdock.domain.UserId;
+import com.roszck.burdock.user.UserId;
 import com.roszck.burdock.ingestion.domain.FileShare;
 import com.roszck.burdock.source.EpubShare;
 import com.roszck.burdock.source.ErrorShare;

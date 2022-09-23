@@ -1,6 +1,6 @@
 package com.roszck.burdock.source;
 
-import com.roszck.burdock.domain.UserId;
+import com.roszck.burdock.user.UserId;
 import lombok.Getter;
 
 public abstract sealed class SourceLabeledShare permits EpubShare, ErrorShare, PDFShare, TwitterShare, WebPageShare, YoutubeShare {
