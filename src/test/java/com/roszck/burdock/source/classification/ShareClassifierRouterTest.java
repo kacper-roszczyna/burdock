@@ -1,5 +1,6 @@
 package com.roszck.burdock.source.classification;
 
+import com.roszck.burdock.source.mock.UserMocks;
 import com.roszck.burdock.user.UserId;
 import com.roszck.burdock.ingestion.domain.FileShare;
 import com.roszck.burdock.ingestion.domain.URLShare;
@@ -21,7 +22,7 @@ class ShareClassifierRouterTest {
     private final URLShareSourceClassifier urlClassifier = Mockito.mock(URLShareSourceClassifier.class);
     private final ShareClassifierRouter router = new ShareClassifierRouter(fileClassifier, urlClassifier);
 
-    private final UserId userId = new UserId();
+    private final UserId userId = UserMocks.userId;
 
     @Nested
     @DisplayName("When share contains url")

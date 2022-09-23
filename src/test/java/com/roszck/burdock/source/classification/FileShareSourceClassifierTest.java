@@ -1,5 +1,6 @@
 package com.roszck.burdock.source.classification;
 
+import com.roszck.burdock.source.mock.UserMocks;
 import com.roszck.burdock.user.UserId;
 import com.roszck.burdock.ingestion.domain.FileShare;
 import com.roszck.burdock.source.EpubShare;
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileShareSourceClassifierTest {
 
     private final ShareSourceClassifier sourceClassifier = new FileShareSourceClassifier();
-    private final UserId userId = new UserId();
+    private final UserId userId = UserMocks.userId;
 
     @Nested
     @DisplayName("When shared file is an epub")

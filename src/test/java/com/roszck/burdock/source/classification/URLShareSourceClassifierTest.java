@@ -1,5 +1,6 @@
 package com.roszck.burdock.source.classification;
 
+import com.roszck.burdock.source.mock.UserMocks;
 import com.roszck.burdock.user.UserId;
 import com.roszck.burdock.ingestion.domain.URLShare;
 import com.roszck.burdock.source.ErrorShare;
@@ -19,14 +20,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Given an instance of URLShareSourceClassifier")
 class URLShareSourceClassifierTest {
 
-    private URLShareSourceClassifier classifier = new URLShareSourceClassifier();
-    private UserId userId = new UserId();
+    private final URLShareSourceClassifier classifier = new URLShareSourceClassifier();
+    private final UserId userId = UserMocks.userId;
 
     @Nested
     @DisplayName("When Tweet in a share")
     class WhenTweet {
 
-        private URLShare urlShare = new URLShare(
+        private final URLShare urlShare = new URLShare(
                 new URL("https://twitter.com/GergelyOrosz/status/1570750807540404225"),
                 userId
         );
@@ -51,7 +52,7 @@ class URLShareSourceClassifierTest {
     @DisplayName("When YT video in a share")
     class WhenYT {
 
-        private URLShare urlShare = new URLShare(
+        private final URLShare urlShare = new URLShare(
                 new URL("https://youtu.be/zFleLL5zlal"),
                 userId
         );
@@ -71,7 +72,7 @@ class URLShareSourceClassifierTest {
     @DisplayName("When generic web page")
     class WhenWebPage {
 
-        private URLShare urlShare = new URLShare(
+        private final URLShare urlShare = new URLShare(
                 new URL("https://martinfowler.com/807540404225"),
                 userId
         );
@@ -91,7 +92,7 @@ class URLShareSourceClassifierTest {
     @DisplayName("When incorrect url")
     class WhenIncorrect {
 
-        private URLShare urlShare = new URLShare(
+        private final URLShare urlShare = new URLShare(
                 new URL("file://martinfowler.com/807540404225"),
                 userId
         );
