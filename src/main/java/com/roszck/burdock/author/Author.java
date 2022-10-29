@@ -1,5 +1,10 @@
 package com.roszck.burdock.author;
 
+import com.roszck.burdock.author.channel.PublishingAccount;
+import com.roszck.burdock.author.channel.TwitterAccount;
+import com.roszck.burdock.author.channel.WebPage;
+import com.roszck.burdock.author.channel.YoutubeChannel;
+
 import java.net.URL;
 import java.util.List;
 
@@ -10,8 +15,10 @@ public class Author {
     private String lastName;
     private URL avatar;
 
+    private AuthorBlacklistStatus blacklistStatus;
+
     private List<TwitterAccount> twitterAccounts;
-    private List<YoutubeAccount> youtubeAccounts;
+    private List<YoutubeChannel> youtubeChannels;
     private List<PublishingAccount> publishingAccounts;
     private List<WebPage> webPages;
 

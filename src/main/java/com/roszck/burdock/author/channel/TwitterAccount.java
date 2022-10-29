@@ -1,6 +1,6 @@
-package com.roszck.burdock.author;
+package com.roszck.burdock.author.channel;
 
-public class TwitterAccount {
+public class TwitterAccount implements ContentChannel {
 
     private String id;
     private String name;
