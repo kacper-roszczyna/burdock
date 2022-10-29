@@ -11,6 +11,7 @@ import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import reactor.test.StepVerifier;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -43,7 +44,9 @@ class URLShareSourceClassifierTest {
                     new URL("https://twitter.com/GergelyOrosz/status/1570750807540404225"),
                     userId
             );
-            assertInstanceOf(TwitterShare.class, classifier.classify(urlShare));
+            StepVerifier.create(classifier.classify(urlShare))
+                    .expectNextMatches(share -> share instanceof TwitterShare)
+                    .verifyComplete();
         }
 
     }
@@ -63,7 +66,9 @@ class URLShareSourceClassifierTest {
         @Test
         @DisplayName("Then expect YoutubeShare returned")
         public void thenYTShare() {
-            assertInstanceOf(YoutubeShare.class, classifier.classify(urlShare));
+            StepVerifier.create(classifier.classify(urlShare))
+                    .expectNextMatches(share -> share instanceof YoutubeShare)
+                    .verifyComplete();
         }
 
     }
@@ -83,7 +88,9 @@ class URLShareSourceClassifierTest {
         @Test
         @DisplayName("Then expect a WebPageShare")
         public void thenWebPageShare() {
-            assertInstanceOf(WebPageShare.class, classifier.classify(urlShare));
+            StepVerifier.create(classifier.classify(urlShare))
+                    .consumeNextWith(next -> assertInstanceOf(WebPageShare.class, next))
+                    .verifyComplete();
         }
 
     }
@@ -103,7 +110,9 @@ class URLShareSourceClassifierTest {
         @Test
         @DisplayName("Then expect a ErrorShare")
         public void thenError() {
-            assertInstanceOf(ErrorShare.class, classifier.classify(urlShare));
+            StepVerifier.create(classifier.classify(urlShare))
+                    .consumeNextWith(next -> assertInstanceOf(ErrorShare.class, next))
+                    .verifyComplete();
         }
 
     }

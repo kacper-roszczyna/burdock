@@ -7,6 +7,7 @@ import com.roszck.burdock.source.ErrorShare;
 import com.roszck.burdock.source.PDFShare;
 import com.roszck.burdock.source.SourceLabeledShare;
 import org.apache.commons.io.FilenameUtils;
+import reactor.core.publisher.Mono;
 
 class FileShareSourceClassifier implements ShareSourceClassifier {
 
@@ -14,15 +15,15 @@ class FileShareSourceClassifier implements ShareSourceClassifier {
     public static final String PDF = "pdf";
 
     @Override
-    public SourceLabeledShare classify(Share share) {
+    public Mono<SourceLabeledShare> classify(Share share) {
         FileShare fileShare = (FileShare) share;
         var file = fileShare.getFile();
         var extension = FilenameUtils.getExtension(file.getName());
         if (EPUB.equalsIgnoreCase(extension))
-            return new EpubShare(file, share.getUserId());
+            return Mono.just(new EpubShare(file, share.getUserId()));
         if (PDF.equalsIgnoreCase(extension))
-            return new PDFShare(file, share.getUserId());
-        return new ErrorShare(share, "Unrecognized file type");
+            return Mono.just(new PDFShare(file, share.getUserId()));
+        return Mono.just(new ErrorShare(share, "Unrecognized file type"));
     }
 
 }

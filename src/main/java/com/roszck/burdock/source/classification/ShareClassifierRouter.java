@@ -4,6 +4,7 @@ import com.roszck.burdock.ingestion.domain.FileShare;
 import com.roszck.burdock.ingestion.domain.Share;
 import com.roszck.burdock.ingestion.domain.URLShare;
 import com.roszck.burdock.source.SourceLabeledShare;
+import reactor.core.publisher.Mono;
 
 class ShareClassifierRouter implements ShareSourceClassifier {
     private final FileShareSourceClassifier fileClassifier;
@@ -16,7 +17,7 @@ class ShareClassifierRouter implements ShareSourceClassifier {
     }
 
     @Override
-    public SourceLabeledShare classify(Share share) {
+    public Mono<SourceLabeledShare> classify(Share share) {
         return switch(share) {
             case FileShare fs -> fileClassifier.classify(fs);
             case URLShare us -> urlClassifier.classify(us);
