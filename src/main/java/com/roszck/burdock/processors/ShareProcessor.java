@@ -1,10 +1,10 @@
 package com.roszck.burdock.processors;
 
 import com.roszck.burdock.source.SourceLabeledShare;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
 
 public interface ShareProcessor {
 
-    Mono<KnowledgeSource> process(SourceLabeledShare share);
+    Flux<LearningResource> process(SourceLabeledShare share);
 
 }
