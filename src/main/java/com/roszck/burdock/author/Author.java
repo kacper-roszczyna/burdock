@@ -1,5 +1,6 @@
 package com.roszck.burdock.author;
 
+import com.roszck.burdock.author.blacklist.Blacklisting;
 import com.roszck.burdock.author.channel.PublishingAccount;
 import com.roszck.burdock.author.channel.TwitterAccount;
 import com.roszck.burdock.author.channel.WebPage;
@@ -15,7 +16,7 @@ public class Author {
     private String lastName;
     private URL avatar;
 
-    private AuthorBlacklistStatus blacklistStatus;
+    private Blacklisting blacklisting;
 
     private List<TwitterAccount> twitterAccounts;
     private List<YoutubeChannel> youtubeChannels;

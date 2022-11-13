@@ -1,4 +1,4 @@
-package com.roszck.burdock.author;
+package com.roszck.burdock.author.blacklist;
 
 public enum AuthorBlacklistStatus {
 
